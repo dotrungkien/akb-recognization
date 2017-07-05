@@ -360,7 +360,9 @@ def maybe_download_and_extract():
     os.makedirs(dest_directory)
   filename = DATA_URL.split('/')[-1]
   filepath = os.path.join(dest_directory, filename)
+  print(filepath, os.path.exists(filepath))
   if not os.path.exists(filepath):
+    print("aaa")
     def _progress(count, block_size, total_size):
       sys.stdout.write('\r>> Downloading %s %.1f%%' % (filename,
           float(count * block_size) / float(total_size) * 100.0))
