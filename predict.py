@@ -15,7 +15,7 @@ tf.app.flags.DEFINE_string("checkpoint_dir", "tmp/cifar10_train",
                             """Directory where to read model checkpoints.""")
 
 IMAGE_SIZE = 24
-LABEL_NAMES = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
+LABEL_NAMES = ['Kashiwaghi Yuki', 'Yamamoto Sayaka', 'Komima Haruna', 'Sashihara Rino', 'Watanabe Mayu']
 
 def evaluate_image(filename):
     with tf.Graph().as_default() as g:
@@ -43,7 +43,7 @@ def evaluate_image(filename):
                 return
 
             values, indices = sess.run(top_k_pred)
-            print indices[0][0], values[0][0]
+            print LABEL_NAMES[indices[0][0]-1], values[0][0]
 
 def img_read(filename):
     if not tf.gfile.Exists(filename):
